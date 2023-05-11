@@ -2,6 +2,7 @@
 #include <map>
 #include <tuple>
 #include <iterator>
+#include <algorithm>
 
 template< typename T, T default_value, size_t dimensions = 2 >
 class matrix
@@ -15,7 +16,7 @@ public:
         return elements_[ idx1 ];
     }
 
-    auto size() const
+    size_t size() const
     {
         size_t count = 0;
         for( const auto& element : elements_ )
@@ -172,7 +173,7 @@ public:
         return handler<T, default_value>{ idx, elements_ };
     }
 
-    auto size() const
+    size_t size() const
     {
         return std::count_if( elements_.begin(), elements_.end(),
                              []( auto element ) { return element.second != default_value; } );
