@@ -101,7 +101,7 @@ private:
     {
         for ( auto i = elements_.begin(), last = elements_.end(); i != last; )
         {
-            if ( !i->second.size() )
+            if ( i->second.size() == 0 )
                 i = elements_.erase( i );
             else
                 ++i;
